@@ -1,0 +1,30 @@
+# Simulation outputs
+*.vcd
+*.vvp
+*.out
+
+# Compiled simulation
+mips_sim*
+
+# Vivado files
+*.jou
+*.log
+*.str
+*.xpr
+.Xil/
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+
+# Backup files
+*~
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Word docs (optional - remove if you want to include)
+# *.docx
