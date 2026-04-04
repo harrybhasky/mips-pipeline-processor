@@ -2,6 +2,22 @@
 
 A Verilog implementation of a 6-stage MIPS pipelined processor with forwarding and hazard detection.
 
+## Directory Structure
+```
+├── rtl/                    # Design files
+│   ├── mips_processor.v    # Top module
+│   ├── instruction_memory.v
+│   ├── instruction_decode.v
+│   ├── instruction_fetch.v
+│   ├── register_file.v
+│   ├── data_memory.v
+│   ├── forwarding_unit.v
+│   └── hazard_detection_unit.v
+├── tb/                     # Testbench
+│   └── mips_processor_tb.v
+└── waves/                  # Waveform files
+```
+
 ## Pipeline Stages
 1. **IF** - Instruction Fetch
 2. **ID** - Instruction Decode
@@ -24,23 +40,10 @@ A Verilog implementation of a 6-stage MIPS pipelined processor with forwarding a
 - Jump handling with pipeline flush
 - Bypass paths (MUL bypassed for addi, ADD bypassed for mul)
 
-## Files
-| File | Description |
-|------|-------------|
-| `mips_processor.v` | Main processor (top module) |
-| `mips_processor_tb.v` | Testbench |
-| `instruction_memory.v` | Instruction memory |
-| `instruction_decode.v` | Instruction decoder |
-| `instruction_fetch.v` | Instruction fetch unit |
-| `register_file.v` | 32x32-bit register file |
-| `data_memory.v` | Byte-addressable data memory |
-| `forwarding_unit.v` | Forwarding unit |
-| `hazard_detection_unit.v` | Hazard detection |
-
 ## Simulation (Icarus Verilog)
 ```bash
-iverilog -o mips_sim mips_processor.v forwarding_unit.v mips_processor_tb.v
-vvp mips_sim
+iverilog -o waves/mips_sim rtl/*.v tb/mips_processor_tb.v
+vvp waves/mips_sim
 ```
 
 ## Test Program

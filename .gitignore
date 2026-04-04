@@ -2,9 +2,8 @@
 *.vcd
 *.vvp
 *.out
-
-# Compiled simulation
 mips_sim*
+!waves/README.md
 
 # Vivado files
 *.jou
